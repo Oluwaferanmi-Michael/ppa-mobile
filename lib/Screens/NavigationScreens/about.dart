@@ -24,9 +24,9 @@ class _AboutState extends State<About> {
           padding: const EdgeInsets.symmetric(horizontal:24.0, vertical: 12),
           child: Column(
       
-            // crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Flexible(child: Text(aboutUs)),
+              Text(aboutUs),
               
               const SizedBox(
                 height: 24
@@ -46,7 +46,9 @@ class _AboutState extends State<About> {
                       ),
                       borderRadius: BorderRadius.circular(4)
                     ),
-                    child: const Text('MST', style: TextStyle(fontWeight: FontWeight.bold)),
+                    child: Text('MST', style: TextStyle(
+                      color: green,
+                      fontWeight: FontWeight.bold)),
                   )
                   ]
                   ),
@@ -110,7 +112,7 @@ class _AboutState extends State<About> {
                   height: 12,
                 ),
               
-              const Flexible(child: Text(mission))
+              const Text(mission)
             ],
           ),
         ),

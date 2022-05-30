@@ -1,5 +1,5 @@
 import 'package:peculiar_people_assembly/UI%20Components/color_icons.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+
 import 'package:flutter/material.dart';
 import 'package:peculiar_people_assembly/Screens/NavigationScreens/home.dart';
 
@@ -16,7 +16,22 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
 
  int _currentIndex = 0;
- PersistentTabController _pageController = PersistentTabController(initialIndex: 0);
+
+ void onSelected(int index) {
+   setState(() {
+     _currentIndex = index;
+   });
+ }
+
+ colorChange(Color? color){
+   switch (_currentIndex) {
+     case 1:
+      color =  greenAccent;
+       break;
+     default:
+   }
+ }
+ 
 
  List<Widget> pages = [
    Home(),
@@ -24,37 +39,35 @@ class _NavigationState extends State<Navigation> {
    Contact()
  ];
 
- List<PersistentBottomNavBarItem> barItem = [
-   PersistentBottomNavBarItem(
+ List<BottomNavigationBarItem> barItem = [
+   BottomNavigationBarItem(
       icon: home,
-      title: 'Sermons',
-      activeColorPrimary: blue,
-      activeColorSecondary: blueAccent
+      label: 'Sermons',
+      backgroundColor: blueAccent
      ),
-     PersistentBottomNavBarItem(
+     BottomNavigationBarItem(
       icon: about,
-      title: 'About Us',
-      activeColorPrimary: green,
-      activeColorSecondary: greenAccent
+      label: 'About Us',
+      backgroundColor: greenAccent
     ),
-    PersistentBottomNavBarItem(
+    BottomNavigationBarItem(
       icon: contact,
-      title: 'Contact Us',
-      activeColorPrimary: pink,
-      activeColorSecondary: pinkAccent
+      label: 'Contact Us',
+      backgroundColor: pinkAccent
     )
  ];
 
   @override
   Widget build(BuildContext context) {
-    return PersistentTabView(
-      context,
-      controller: _pageController,
-      navBarStyle: NavBarStyle.style1,
-      confineInSafeArea: true,
-      screens: pages,
-      items: barItem,
-      
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: blue,
+        onTap: onSelected,
+        items: barItem,
+        currentIndex: _currentIndex,
+        type: BottomNavigationBarType.fixed,
+      ),
+      body: pages[_currentIndex]
     );
   }
 }

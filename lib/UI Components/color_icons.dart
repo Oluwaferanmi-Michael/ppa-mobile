@@ -13,7 +13,9 @@ Color pinkAccent = Color(0xFFE9C4FF);
 
 Color black = Color(0xFF);
 Color white = Color(0xFFFFFFFF);
+Color grey = Color(0xFFEEEEEE);
 
 Icon home = const Icon(IconlyLight.home);
 Icon about = const Icon(IconlyLight.info_square);
 Icon contact = const Icon(IconlyLight.call);
+Icon play = const Icon(IconlyLight.play);

@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'peculiar people assembly',
       debugShowCheckedModeBanner: false,
+      themeMode:ThemeMode.system,
+
+
       home: Navigation(),
       routes: routes,
       

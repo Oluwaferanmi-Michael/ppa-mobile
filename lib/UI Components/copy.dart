@@ -5,5 +5,8 @@ const mission = 'As received by the General Overseer (G.O.), Pastor E. A. Adeboy
 const contactUs = 'Our desire is to be a Church where God transforms lives. We strive for relevant biblical teaching; passionate worship; deep and lasting friendships and consistent prayer. So whether you are coming to church for the first time or you have been in church your entire life, come and join us as we grow together in love and knowledge of Christ.';
 
 const phoneNumber = '+1.403.714.2283';
+const phone = '+1-403-714-2283';
 
 const email = 'pastor@rccgstrathmore.com';
+
+const address = '322A 2ND AVENUE, STRATHMORE AB';

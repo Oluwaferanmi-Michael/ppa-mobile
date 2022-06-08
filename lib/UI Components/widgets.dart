@@ -7,30 +7,34 @@ class CustomIcon extends StatelessWidget {
   final Color? color;
   final IconData? icon;
   final Color? iconColor;
+  final GestureTapCallback? onPressed;
   const CustomIcon({
     this.color,
     this.icon,
     this.iconColor,
-    Key? key}) : super(key: key);
+    Key? key, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(24),
-        color: color
-      ),
-      child: Icon(icon, color: iconColor,),
+    return InkWell(
+      onTap: onPressed,
+      child: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            color: color
+          ),
+          child: Icon(icon, color: iconColor,),
+        ),
     );
   }
 }
 
 class VideoCard extends StatelessWidget {
-  String? title;
-  String? details;
+  final String? title;
+  final String? details;
 
-  VideoCard({
+  const VideoCard({
     this.details,
     this.title,
     Key? key
@@ -46,11 +50,11 @@ class VideoCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          
-            
-              Image.asset('3011.png'),
+
+          Image.asset('3011.png'),
           
           const SizedBox(height: 16,),
+          
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Row(
@@ -59,11 +63,8 @@ class VideoCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title!, style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16
-                      ),),
-                    Text(details!)
+                    Text(title!, style: bodyText2(context)),
+                    Text(details!, style: bodyText1(context),)
                   ],
                 ),
                 CustomIcon(

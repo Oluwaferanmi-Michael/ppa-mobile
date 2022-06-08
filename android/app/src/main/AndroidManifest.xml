@@ -1,5 +1,35 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.peculiar_people_assembly">
+
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.LOCATION_HARDWARE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <queries>
+        <!-- using url_launcher package -->
+        <!-- app opens https URLs -->
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:scheme="https" />
+        </intent>
+        <!-- app makes calls -->
+        <intent>
+            <action android:name="android.intent.action.ACTION_DIAL" />
+            <data android:scheme="tel" />
+        </intent>
+        <!-- sends SMS messages -->
+        <intent>
+            <action android:name="android.intent.action.ACTION_SENDTO" />
+            <data android:scheme="smsto" />
+        </intent>
+        <!-- app sends emails -->
+        <intent>
+            <action android:name="android.intent.action.ACTION_SEND" />
+            <data android:mimeType="*text/plain*" />
+        </intent>
+    </queries>
+
    <application
         android:label="peculiar_people_assembly"
         android:name="${applicationName}"

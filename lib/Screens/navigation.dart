@@ -7,7 +7,7 @@ import 'NavigationScreens/about.dart';
 import 'NavigationScreens/contact.dart';
 
 class Navigation extends StatefulWidget {
-  Navigation({Key? key}) : super(key: key);
+  const Navigation({Key? key}) : super(key: key);
 
   @override
   State<Navigation> createState() => _NavigationState();
@@ -33,7 +33,7 @@ class _NavigationState extends State<Navigation> {
  }
  
 
- List<Widget> pages = [
+ List<Widget> pages = const [
    Home(),
    About(),
    Contact()
